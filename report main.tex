@@ -1,0 +1,542 @@
+\documentclass[journal]{IEEEtran}
+
+
+%%------------------------------------------------------
+%% Packages
+%%------------------------------------------------------
+\usepackage[T1]{fontenc}           %% Codificação de caracteres
+\usepackage[utf8]{inputenc}        %% Codificação de caracteres (conversão automática dos acentos)
+\usepackage[dvips]{graphicx}       %% para a macro includegraphics 
+\usepackage[english,brazil]{babel} %% PT_BR e EN (o último define a prioridade no arquivo)
+\usepackage{pgf}                   %% macro para criar gráficos
+\usepackage{epsfig}                %% or use the epsfig package if you prefer to use the old commands
+\usepackage{graphics}              %% use the graphics package for simple commands
+\usepackage{graphicx}              %% or use the graphicx package for more complicated commands
+\usepackage{epstopdf}              %% enable EPS (convert to PDF)
+\usepackage{float}                 %% float environment
+\usepackage{eqparbox}              %% to define a group of boxes 
+\usepackage{hyphenat}              %% prevent hyphenation
+\usepackage{hyperref}              %% enalbe one-click link
+
+% \usepackage{showframe} %% just for the example
+
+% \usepackage[sort,compress]{cite} %% disable if natbib package is activated
+\usepackage[numbers,sort&compress,square]{natbib} %% e.g., [2-5]
+
+
+
+%%------------------------------------------------------
+%% Definitions
+%%------------------------------------------------------
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+%% Can use something like this to put references on a page
+%% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+%%----------------- Definindo as variáveis com números
+\makeatletter
+%
+\newcommand{\prenome}{\afterassignment\prenome@aux\count0=}
+\newcommand{\prenome@aux}{\csname prenome\the\count0\endcsname}
+%
+\newcommand{\nomedomeio}{\afterassignment\nomedomeio@aux\count0=}
+\newcommand{\nomedomeio@aux}{\csname nomedomeio\the\count0\endcsname}
+%
+\newcommand{\sobrenome}{\afterassignment\sobrenome@aux\count0=}
+\newcommand{\sobrenome@aux}{\csname sobrenome\the\count0\endcsname}
+\makeatother
+%%%%%
+
+%%----------------- Configurações de hyperlinks
+%% Não decorado, sem destaque
+\hypersetup{
+  colorlinks=false,
+  pdfborder={0 0 0},
+}
+
+
+
+
+%%------------------------------------------------------
+%% Configurações
+%%------------------------------------------------------
+
+%%----------------- Título
+\title                                                {GAME}
+
+\newcommand{\emailautor}                              {seuemail@grad.ufsc.br}
+
+\newcommand{\siglaRevista}                            {UFSC}
+
+\newcommand{\Revista}                                 {Universidade Federal de Santa Catarina (UFSC)}
+
+
+
+%%----------------- Autor Principal (a acenturação deverá ser indireta)
+\newcommand{\prenomePrincipal}                        {Carolina}
+\newcommand{\nomedomeioPrincipal}                     {}
+\newcommand{\sobrenomePrincipal}                      {Leite e Magali Cortes}
+
+
+%%----------------- Demais Autores
+%% Segundo autor (a acenturação deverá ser indireta)
+\expandafter\newcommand\csname prenome2\endcsname     {Magali}
+\expandafter\newcommand\csname nomedomeio2\endcsname  {}
+\expandafter\newcommand\csname sobrenome2\endcsname   {Cortes}
+
+
+%% Terceiro autor (a acenturação deverá ser indireta)
+\expandafter\newcommand\csname prenome3\endcsname     {Cesare}
+\expandafter\newcommand\csname nomedomeio3\endcsname  {Mansueto Giulio}
+\expandafter\newcommand\csname sobrenome3\endcsname   {Lattes}
+
+%% Quarto autor (a acenturação deverá ser indireta)
+\expandafter\newcommand\csname prenome4\endcsname     {Erwin}
+\expandafter\newcommand\csname nomedomeio4\endcsname  {Rudolf Josef Alexander}
+\expandafter\newcommand\csname sobrenome4\endcsname   {Schr\"odinger}
+
+%% Quinto autor (a acenturação deverá ser indireta)
+\expandafter\newcommand\csname prenome5\endcsname     {Werner}
+\expandafter\newcommand\csname nomedomeio5\endcsname  {Karl}
+\expandafter\newcommand\csname sobrenome5\endcsname   {Heisenberg}
+
+
+
+
+%%------------------------------------------------------
+%% Autor(es)
+
+
+%%----------------- Apenas um autor
+\author{\IEEEauthorblockN{\prenomePrincipal~\nomedomeioPrincipal~\sobrenomePrincipal\IEEEauthorrefmark{1}}
+
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Universidade Federal de Santa Catarina (UFSC)}% <-this % stops an unwanted space
+%%
+\thanks{\Revista. Correspond\^encia ao autor: \prenomePrincipal~\nomedomeioPrincipal~\sobrenomePrincipal~(email: \emailautor).}}
+
+
+
+% %%----------------- Vários Autores
+% \author{\IEEEauthorblockN{\prenomePrincipal~\nomedomeioPrincipal~\sobrenomePrincipal\IEEEauthorrefmark{1}, 
+% \prenome2~\nomedomeio2~\sobrenome2\IEEEauthorrefmark{2}, 
+% \prenome3~\nomedomeio3~\sobrenome3\IEEEauthorrefmark{3}, 
+% \prenome4~\nomedomeio4~\sobrenome4\IEEEauthorrefmark{3}, and 
+% \prenome5~\nomedomeio5~\sobrenome5\IEEEauthorrefmark{4},~\IEEEmembership{Fellow,~IEEE}}
+% 
+% \IEEEauthorblockA{\IEEEauthorrefmark{1}Universidade Federal de Santa Catarina (UFSC)}
+% 
+% \IEEEauthorblockA{\IEEEauthorrefmark{2}School of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta, GA 30332 USA}
+% 
+% \IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, CA 96678 USA}
+% 
+% \IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, CA 90210 USA}% <-this % stops an unwanted space
+% %%
+% \thanks{\Revista~(\siglaRevista). Correspond\^encia ao autor: \prenomePrincipal~\nomedomeioPrincipal~\sobrenomePrincipal~(email: \emailautor).}}
+
+
+
+%%------------------------------------------------------
+%% Cabeçalho
+\markboth{\MakeUppercase{\Revista}}%% acentuação indireta
+%% Apenas um autor:
+{\sobrenomePrincipal: \MakeUppercase{\Revista}}
+%% Mais de um autor:
+% {\sobrenomePrincipal: \MakeLowercase{\textit{et al.}}: \Revista}
+
+
+%%------------------------------------------------------
+%% Abstract
+\IEEEtitleabstractindextext{
+
+  {\selectlanguage{brazil}
+    \begin{abstract}
+    Apresentamos o processo criativo de um jogo em linguagem C de programação, fazendo uso do editor Kate disponível no sistema operacional Linux. Abordamos todos os blocos escritos necessários para compilar o programa.
+    \end{abstract}
+    %%----------------- Keywords
+    \renewcommand\IEEEkeywordsname{Palavras-chave} %% Palavras-chave ao invés de 'Index Terms'
+    \begin{IEEEkeywords}
+    Jogo, linguagem de programação, linguagem C, matriz, vetor, estrutura de repetição, terminal..
+    \end{IEEEkeywords}
+  }
+
+  {\selectlanguage{english}
+    \begin{abstract}
+    We introduce the creation of a game in programming language C, making use of the Kate editor available on the Linux operating system. We cover all written blocks needed to compile the program.
+    \end{abstract}
+    %%----------------- Keywords
+    \begin{IEEEkeywords}
+    Game, programming language, C language, matrix, vector, repetition structure, terminal.
+    \end{IEEEkeywords}
+  }
+}
+
+
+
+
+
+
+
+
+\begin{document}
+
+
+
+%%------------------------------------------------------
+%% Inserção de informações
+\maketitle
+\IEEEdisplaynontitleabstractindextext
+\IEEEpeerreviewmaketitle
+
+
+%%------------------------------------------------------
+%% Section
+\section{Introdução}
+
+\IEEEPARstart{E}{ste} projeto foi proposto pelo professor da disciplina, usado como método didático alternativo. O objetivo foi uma maior compreensão de lógica de programação, tipos de dados, estruturas de seleção e repetição, funções e estruturas de dados e outros tópicos abordados na disciplina de programação I. No desenvolvimento do jogo passamos pelo processo criativo, de produção e documentação. Tivemos apoio dos monitores e do professor ao longo do semestre.
+O código de um game pode apresentar blocos muito complexos, usando de diversos recursos, como efeito sonoro usado em nosso jogo. 
+
+
+\section{Fundamentação teórica}
+
+\subsection{Histórico dos games}
+Foi no período da guerra fria, com a necessidade de alguma distração prazerosa, que um cientista norte americano pensou em usar a mesma lógica usada como ferramenta de guerra, para criar um tipo de jogo interação homem-máquina. Apenas em 1972 foi disponibilizado um jogo com objetivo comercial, o Pong. Em seguida alguns jogos famosos como Pacman(1980) e Donk Kong (1981) foram surgindo. No Brasil, o primeiro jogo foi o Telejogo em 1977.
+
+
+\subsection{Lógica de programação}
+Pode-se dizer que lógica - de maneira geral - é construir a solução ou definir a correção de algum problema ou conceito. E ela envolve algum tipo de análise. Pode ser simples, como por exemplo definir que morango é uma fruta e não um legume - ou, pode ser complexa como a resolução de algum cálculo avançado.
+
+
+A lógica de programação se diferencia por conta da linguagem específica que usa (existem diversas) e pelo seu objetivo específico de resolver problemas digitais.
+
+
+Um programa é uma sequência lógica de comandos que buscam solucionar algum problema. O princípio da lógica desenvolvida no programa pode envolver um fluxograma, que é uma ferramenta gráfica para apresentação do algoritmo. Por sua vez, o algoritmo é uma sequência de passos resumidos que guiam a idéia principal para o programa. Na imagem a seguir está um fluxograma para solução do problema: trocar lâmpada.
+
+
+%% A Figura~\ref{fig:fig_exemple} é um simples exemplo, utilizando inserção de figura, cuja dimensão da figura está em função da largura da coluna, por meio do parâmetro 
+%%{\ttfamily\fontsize{9}{9}\selectfont\texttt{\string\columnwidth}}, ajustado em 23\%, \textit{i.e.}, ``{\ttfamily\fontsize{9}{9}\selectfont\texttt{width=.23\string\columnwidth}}''. Para uma melhor organização, a pasta ``{\ttfamily\fontsize{9}{9}\selectfont\texttt{figs}}'' será utilizada para armazenar as figuras. Os parâmetros {\ttfamily\fontsize{9}{9}\selectfont\texttt{!htbp}}, os quais significam aqui (h), topo (t), embaixo (b) e página com objetos flutuantes (p), respectivamente. Este parâmetros são utilizados segundo uma ordem de posicionamento da figura, neste caso, da esquerda para a direita, em que o símbolo ``{\ttfamily\fontsize{9}{9}\selectfont\texttt{!}}'' força a prioridade neste sentido.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.40\columnwidth]{fluxograma.jpg}
+\caption{Exemplo de fluxograma.}
+\label{fig:fig_exemple}
+\end{figure}
+
+
+O algoritmo é também importante para o mundo da programação, pois ele independe da linguagem escolhida, ou seja, pode ser interpretado de forma universal.
+
+
+\subsection{Dados}
+Diferentes tipos de dados são a forma como recebemos e manipulamos informações em um programa. Existem quatro tipos primitivos, que são: 
+\\ o tipo inteiro - conjunto dos números inteiros {...-2,-1,0,1,2...}; 
+tipo real - conjunto dos números reais { ...-3/2, -0.5, ⅓…}; 
+caracter - caracteres alfanuméricos {9, a, #}; 
+lógico - é uma operação que pode gerar dois resultados diferentes { E, OU, NÃO}.
+
+
+Para utilizar dados em um programa, precisamos declarar antes. Podemos guardar ou não, os dados, conforme a operação exigir. 
+
+
+A entrada de dados se dá por um comando de leitura, em nosso caso o “ printf(..) ” e a saída por um comando de escrita, o “scanf(...)”.
+
+
+\subsection{Estruturas de controle}
+Um programa é composto pela entrada, saída e manipulação de dados. Esta última se dá através de comandos, que são estruturas de controle em um formato padrão. A seguir esmiuçamos brevemente cada uma das estruturas básicas na construção de um código de programação.
+\\
+\\ Estrutura de seleção simples (“if” ) - é um teste básico.
+\\
+
+Verifica se uma determinada condição é verdadeira e, em caso positivo, executa um comando. O exemplo de um programa que calcula a média aritmética das notas de um aluno e dá o resultado da aprovação, é mostrado a seguir:
+\\
+\\início
+
+	entrada de dados;
+	
+	processamento;
+	
+\\se (as notas atingirem a média necessária)
+
+\setlength{\parindent}{10ex}
+então mostre (“aluno aprovado”);
+\\fim
+\setlength{\parindent}{3ex}
+\\
+\\Seleção composta - segue o princípio da anterior. 
+\\
+
+Porém, com a possibilidade de gerar um  segundo comando em caso do teste apresentar resultado negativo.
+\\
+\\início
+
+	entrada de dados;
+	
+	processamento;
+	
+\\se (as notas atingirem a média necessária)
+
+\setlength{\parindent}{10ex}
+então mostre (“aluno aprovado”);
+\setlength{\parindent}{3ex}
+
+senão
+\setlength{\parindent}{10ex}
+
+mostre ("aluno não aprovado");
+\\fim
+\setlength{\parindent}{3ex}
+\\
+\\Seleção encadeada 
+\\
+
+Quando o código requer mais de uma condição para executar uma função, pode-se testar várias vezes num mesmo bloco. Esta estrutura pode ser homogênea (quando apresentar um padrão lógico) ou heterogênea (quando não). A seguir um modelo de seleção encadeada heterogênea.
+\\
+\\se
+
+então
+\setlength{\parindent}{7ex}
+
+se
+\setlength{\parindent}{11ex}
+
+então
+\setlength{\parindent}{15ex}
+
+comandos;
+\setlength{\parindent}{11ex}
+
+fim se
+\setlength{\parindent}{3ex}
+\\fim.
+\\
+\\Estrutura de repetição (“while”, “do”, “for”) 
+\\
+
+A maioria dos códigos não são pensados para processar apenas um dado uma única vez. Em geral, são utilizadas repetições que permitem ao programador trabalhar com inúmeros  dados e testes, de acordo com a capacidade de processamento e memória disponível. Como ilustrado no exemplo padrão a seguir:
+\\
+\\início
+
+	entrada de dados;
+	
+	enquanto (condição)
+\setlength{\parindent}{7ex}
+
+		bloco de comandos;
+\setlength{\parindent}{3ex}		
+
+	fimenquanto;
+\\ fim
+\\
+
+Além deste formato, podemos executar o teste no final:
+\\
+\\início
+
+	entrada de dados;
+	
+	faça
+\setlength{\parindent}{7ex}
+
+		bloco de comandos;
+\setlength{\parindent}{3ex}		
+
+	até (condição);
+\\fim
+\\
+
+Algumas situações não requerem teste de condição, pode-se desejar apenas a repetição dos comandos um determinado número de vezes. Como exemplificado:
+\\
+\\para \textbf{x} de \textbf{xo} até \textbf{xf} passo p faça
+
+	comandos:
+\\fimpara;
+
+
+\subsection{Estruturas de dados: Vetores e matrizes}
+
+As estruturas de dados são um recurso que nos permitem construir um novo tipo de dado conforme a demanda de nosso projeto.
+
+
+Por exemplo, suponha que fosse requisitado um código que analise as notas escolares de 500 alunos e depois retorne a quantidade de aprovados. Isso demandaria trabalhar com uma quantidade específica de dados.
+
+
+O intrumento que poderíamos utilizar para resolver este problema, é o Vetor. Este, nos permite armazenar a quantidade exata de dados necessária. Previamente defimos o tamanho que ele possui, já na declaração. Como por exemplo na figura a seguir mostramos um vetor de tamanho 10, ou seja, ele pode armazenar dez valores.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.65\columnwidth]{vetores.jpg}
+\caption{Vetor com 10 posições (vet[10]}
+\label{fig:fig_exemple}
+\end{figure}
+
+Este é um vetor com 10 espaços ocupados por diferentes valores. Por exemplo, a posição 1, está preenchida pelo valor 20. Ou seja, acessando a posição um - vet[1] - estamos lendo seu conteúdo: 20.
+\\
+\\Matrizes: Estrutura composta multidimensional
+\\
+
+Uma construção de dados ainda mais sofisticada, é a matriz. Que nos permite transitar não apenas por espaços enfileirados, mas apresenta uma segunda dimensão, que são as colunas.
+
+A figura a seguir representa uma matriz M[2][3].
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.50\columnwidth]{matriz.jpg}
+\caption{Matriz de 2 linhas e 3 colunas.}
+\label{fig:fig_exemple}
+\end{figure}
+
+Para acessar um espaço nesta estrutura de dados, precisaremos de dois laços de repetição: Um para percorrer as linhas, e outro para percorrer as colunas.
+\\
+\\Strings
+\\
+
+Está relacionado a criação de imagens para serem visualizadas num determinado terminal utilizando caracteres. A string desejada pode, por exemplo, ser uma frase. Cria-se um vetor, onde cada caracter ocupa um espaço. Como representado na imagem.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.50\columnwidth]{string.jpg}
+\caption{Exemplo visual de uma string.}
+\label{fig:fig_exemple}
+\end{figure}
+
+A biblioteca <string.h> possuí diversas funções que nos permitem trabalhar com estas sentenças. Tais quais:
+\\
+\\- copiar uma string para a outra;
+\\- obter o tamanho da string; 
+\\- comparar duas strings;
+\\- ler uma string do teclado.
+
+
+\section{Metodologia}
+A partir de uma proposta bem definida pelo professor da disciplina, utilizamos os seguintes métodos e ferramentas para o desenvolvimento do projeto.
+
+\subsection{Editor KATE}
+A ferramenta KATE é um editor avançado multi documento criado em 2000. Permite ao usuário programar, compilar e executar. Algumas das vantagens de sua utilização são:
+\\
+\\- a possibilidade de usar diversas linguagens de programação;
+\\- o acesso ao editor e o terminal (onde aparece a execução do programa);
+\\- acessar diferentes arquivos ao mesmo tempo.
+
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.60\columnwidth]{kate.png}
+\caption{Página inicial e terminal do jogo.}
+\label{fig:fig_exemple}
+\end{figure}
+
+A figura 5 mostra a aparência do editor utilizado para criar o código de nosso \textit{game}. A parte branca foi utilizada para escrita, e os resultados, após a compilação, são vistos na parte mais escura.
+
+
+\subsection{LINUX}
+Em nosso projeto, trabalhamos exclusivamente com o sistema operacional LINUX, pois foi uma exigência.
+
+O sistema foi lançado no ano de 1991 - passando sempre por atualizações até hoje - pelo engenheiro de software finlandês, Linus Torvalds. 
+
+Em essência, Linux é o nome dado ao \textbf{Kernel} que é um componente  que define instruções relacionadas ao processador, à memória e aos dispositivos periféricos - e junto de outros programas essênciais constitui um sistema operacional.
+
+Uma característica do Linux são as distribuições, que são variações do sistema. Embora ele permaneça com o mesmo fundamento, sendo o mesmo sistema operacional, pode ter aparencias e formas voltadas para determinados nichos. As diferenças que caracterizam as distribuições, se dão por softwares diversos como editores de texto, navegadores e interfaces gráficas.
+
+\subsection{Desenvolvimento do game}
+Nosso jogo foi baseado no jogo do navegador google, que é disponibilizado quando não há conexão com a internet. Este é um jogo onde o personagem que controlamos precisa atravessar obstáculos, desviando-se por cima ou por baixo.
+
+Chamamos nosso jogo de CTJump. E a proposta dele foi fazer algo parecido com acima citado, porém mais desafiador. Nosso jogo contou com mais personagens que precisam passar pelos mesmo obstáculos, quase simultâneamente.A princípio, os três personagens que criamos, são controlados por apenas um jogador.
+
+\section{Resultados}
+Foram obtidos os resultados esperados. Conseguir desenvolver o jogo conforme requisitado e testá-lo várias vezes, com sucesso.
+Utilizando dos conceitos passados em sala de aula, e com a ajuda dos monitores da disciplina, desenvolvemos o código no programa editor de texto \textit{kate}.
+
+A seguir uma imagem da tela inicial, mostrando o nome e o menu de opções do jogo.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.60\columnwidth]{1.jpeg}
+\caption{Página inicial e terminal do jogo.}
+\label{fig:fig_exemple}
+\end{figure}
+
+Ao desenvolver, encontramos dificuldades diversas, principalmente pela pouca expêriencia com lógica e por ser um projeto muito desafiador que demanda técnicas complicadas para nosso nível iniciante, por exemplo, na ampla manipulação de matrizes que o terminal do jogo demandou.
+
+A seguir uma imagem do nosso \textit{game} pausado.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.60\columnwidth]{2.jpeg}
+\caption{Página inicial e terminal do jogo.}
+\label{fig:fig_exemple}
+\end{figure}
+
+Os resultados foram muito satisfatórios.
+
+Nesta seção são apresentados os resultados de simulação e/ou experimentas do seu trabalho. Caso não tenham realizados experimentos ou obtidos resultados concretos, pode-se descrever os resultados esperados.
+
+
+%%------------------------------------------------------
+%% Section
+\section{Conclusão}
+A lógica desenvolvida com os fundamentos teóricos trouxe-nos um novo nível de capacitação. Além do instigamento da criatividade que pode representar um perfil empreendedor para o aluno da disciplina.
+
+
+%%------------------------------------------------------
+%% Appedix (if necessary)
+\appendices
+
+%%----------------- Apêndice A
+%%\section{Título do Apêndice}
+%%Texto da seção. Utilize o apêndice somente quando for necessário.
+
+
+
+%%------------------------------------------------------
+%% Section (no numbering, use section* for acknowledgment)
+%% UFSC: no necessary
+% \section*{Acknowledgment}
+% The authors would like to thank...
+
+
+
+%%------------------------------------------------------
+%% References (Option 1): extern file
+%% Edit with JabRef, for instance
+\bibliographystyle{IEEEtran} %% Estilo da referência
+\bibliography{references}    %% Caminho do arquivo (sem extensão)
+
+
+
+% %%------------------------------------------------------
+% %% References (Option 2): incorporeted
+% 
+\begin{thebibliography}{10} 
+ 
+   \bibitem{Kopka:1999}
+     Forbellone, Andre Luiz Villar \emph{Lógica de programação - A construção de algoritmos e estrutura de dados}, 3rd~ed. Pearson prentice hall 
+    São Paulo: 2005.
+
+% 
+%   \bibitem{Huynen:1998} 
+%     Huynen, M.~A. and Bork, P. 1998. Measuring 
+%     genome evolution. {\em Proceedings of the 
+%     National Academy of Sciences USA} 
+%     95:5849--5856.
+% 
+%   \bibitem{Caprara:1997} 
+%     Caprara, A. 1997. Sorting by reversals is 
+%     difficult. In: {\em Proceedings of the 
+%     First Annual International Conference on 
+%     Computational Molecular Biology 
+%     (RECOMB 97),} New York: ACM.  pp. 75-83.
+% 
+%   \bibitem{Reinelt:1991}
+%     Reinelt, G. 1991. {\em The Traveling 
+%     Salesman -- Computational Solutions for TSP 
+%     Applications.} Berlin: Springer Verlag.
+% 
+% \end{thebibliography}
+
+
+
+\end{document}
