@@ -1,0 +1,20 @@
+INFORMAÇÕES DO JOGO CTJUMP
+
+Trabalho final da materia de programação 1, da Universidade Federal de Santa Catarina
+
+Jogo desenvolvido pelas estudantes:
+	-Carolina Leite
+	-Magali Cortes Chacon de Oliveira
+
+
+Requisitos mínimos do game:
+
+	-Sistema operacional Linux
+	-Tamanho do terminal 40x180 ou maior
+	-Reprodutor de audio "aplay"
+			
+Bibliotecas adicionais utilizadas:
+	
+	-Biblioteca adicional "ncurses"
+		-Para baixar no linux: sudo apt-get install libncurses5-dev libncursesw5-dev
+	
